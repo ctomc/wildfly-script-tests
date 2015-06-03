@@ -96,12 +96,12 @@ public class ScriptPathsTestCase {
             "wildflyチ"
     );
 
-    //@Test
+    @Test
     public void testDomainPaths() throws Exception {
         testPaths(ServerType.DOMAIN);
     }
 
-    //@Test
+    @Test
     public void testStandalonePaths() throws Exception {
         testPaths(ServerType.STANDALONE);
     }
@@ -143,7 +143,7 @@ public class ScriptPathsTestCase {
                             .redirectOutput(scriptRunner.getTempDir().resolve("standalone-output-" + pathName + ".log"))
                             .addEnvironmentVariables(Environment.ENV)
                             .launch();
-                    ;
+
                     ServerHelper.waitForStandalone(serverProcess);
                     scriptProcess = scriptRunner.start("-c", "--command=:shutdown");
                     // Wait for a bit to ensure the command had time to execute and the server time to shutdown
